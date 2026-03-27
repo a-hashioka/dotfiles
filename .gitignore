@@ -1,0 +1,9 @@
+# ignore all the files
+/*
+
+# add required files
+!/.bashrc
+!/.zshrc
+
+!/README.md
+!.gitignore
