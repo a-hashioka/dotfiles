@@ -1,3 +1,4 @@
 # dotfiles
-- .bashrc
-- .zshrc
+## shell
+- bash
+- zsh

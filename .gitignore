@@ -1,9 +1,18 @@
-# ignore all the files
+### ignore all the files ###
 /*
+/**
 
-# add required files
-!/.bashrc
-!/.zshrc
+### add required files ###
 
+# shell
+!/bash/
+!/bash/**
+!/zsh/
+!/zsh/**
+
+# script
+!/bin/
+!/bin/**
+# others
 !/README.md
 !.gitignore
