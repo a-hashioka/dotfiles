@@ -12,6 +12,8 @@ chmod u+x install.sh
 
 ## packages
 
+- git
+
 ### shell
 
 - bash

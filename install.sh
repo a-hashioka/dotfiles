@@ -23,6 +23,7 @@ rm vscode.deb
 DOTFILES=(
     bash
     zsh
+    git
 ) 
 cd ~/dotfiles && stow -vR "${DOTFILES[@]}"
 
