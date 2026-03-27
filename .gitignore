@@ -16,3 +16,4 @@
 # others
 !/README.md
 !.gitignore
+!install.sh
