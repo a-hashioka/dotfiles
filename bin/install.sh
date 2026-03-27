@@ -37,8 +37,4 @@ for app in "${DESKTOP[@]}";do
     cp "/usr/share/applications/${app}.desktop" ~/Desktop/
 done
 
-###other settings###
-LANG=C xdg-user-dirs-update --force
-chsh -s "$(which zsh)"
-
 echo "Installation completed!"
