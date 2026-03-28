@@ -43,7 +43,8 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-# aliases
+###aliases###
+# colorize ls and grep output
 if [[ -x /usr/bin/dircolors ]]; then
     alias ls='ls --color=auto'
     alias grep='grep --color=auto'
@@ -51,13 +52,22 @@ if [[ -x /usr/bin/dircolors ]]; then
     alias egrep='egrep --color=auto'
 fi
 
+# some ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# some cd aliases
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
+
+# some xsel aliases
+alias xcp='xsel -bi'
+alias xps='xsel -bo'
+
+# make tree output copyable
+alias tree='tree -a -I .git | xcp'
 
 # install and initialize zplug
 export ZPLUG_HOME="$HOME/.zplug"

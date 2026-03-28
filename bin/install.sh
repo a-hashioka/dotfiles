@@ -11,6 +11,7 @@ PACKAGES=(
     htop # system monitor 
     xsel # clipboard manager
     stow  # symlink manager
+    tree # directory viewer
     nautilus-dropbox #cloud
 )
 sudo apt install -y "${PACKAGES[@]}"

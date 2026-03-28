@@ -20,3 +20,24 @@ chmod u+x install.sh
 
 - bash
 - zsh
+
+## directory tree
+
+```txt
+.
+├── .gitignore
+├── README.md
+├── bash
+│   ├── .bash_logout
+│   └── .bashrc
+├── bin
+│   ├── install.sh
+│   └── setup.sh
+├── git
+│   └── .gitconfig
+└── zsh
+    ├── .p10k.zsh
+    └── .zshrc
+
+5 directories, 9 files
+```
