@@ -2,15 +2,17 @@
 
 ## installer
 
-put dotfiles/ on home directory
+Place the `dotfiles/` directory in your home directory.
 
 ```sh
-cd dotfiles
+cd dotfiles/bin/
 chmod u+x install.sh
 ./install.sh
 ```
 
 ## packages
+
+### version control
 
 - git
 
