@@ -12,7 +12,7 @@ PACKAGES=(
     xsel # clipboard manager
     stow  # symlink manager
     tree # directory viewer
-    nautilus-dropbox #cloud
+    # nautilus-dropbox #cloud
 )
 sudo apt install -y "${PACKAGES[@]}"
 
@@ -29,13 +29,13 @@ DOTFILES=(
 cd ~/dotfiles && stow -vR "${DOTFILES[@]}"
 
 ###make desktop shortcuts###
-DESKTOP=(
-    "code"
-    "dropbox"
-)
-mkdir -p ~/Desktop
-for app in "${DESKTOP[@]}";do
-    cp "/usr/share/applications/${app}.desktop" ~/Desktop/
-done
+# DESKTOP=(
+#     "code"
+#     "dropbox"
+# )
+# mkdir -p ~/Desktop
+# for app in "${DESKTOP[@]}";do
+#     cp "/usr/share/applications/${app}.desktop" ~/Desktop/
+# done
 
 echo "Installation completed!"
