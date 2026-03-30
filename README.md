@@ -21,10 +21,14 @@ chmod u+x install.sh
 - bash
 - zsh
 
+### terminal emulator
+
+- ghostty
+
 ## directory tree
 
 ```txt
-.
+..
 ├── .gitignore
 ├── README.md
 ├── bash
@@ -33,11 +37,15 @@ chmod u+x install.sh
 ├── bin
 │   ├── install.sh
 │   └── setup.sh
+├── ghostty
+│   └── .config
+│       └── ghostty
+│           └── config.ghostty
 ├── git
 │   └── .gitconfig
 └── zsh
     ├── .p10k.zsh
     └── .zshrc
 
-5 directories, 9 files
+8 directories, 10 files
 ```

@@ -16,7 +16,7 @@ setopt histignorealldups sharehistory
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+# Keep 10000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
@@ -67,7 +67,11 @@ alias xcp='xsel -bi'
 alias xps='xsel -bo'
 
 # make tree output copyable
-alias tree='tree -a -I .git | xcp'
+alias tree='tree -a -I .git'
+alias xtree='tree -a -I .git | xcp'
+
+# stow alias
+alias stow='stow -vR'
 
 # install and initialize zplug
 export ZPLUG_HOME="$HOME/.zplug"

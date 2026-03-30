@@ -16,6 +16,9 @@ PACKAGES=(
 )
 sudo apt install -y "${PACKAGES[@]}"
 
+# install ghostty(terminal emulator)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
+
 wget -O vscode.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
 sudo apt install -y ./code.deb
 rm vscode.deb
@@ -25,8 +28,15 @@ DOTFILES=(
     bash
     zsh
     git
+    ghostty
 ) 
 cd ~/dotfiles && stow -vR "${DOTFILES[@]}"
+
+###install nerd font(JetBrains Mono)###
+mkdir -p ~/.local/share/fonts
+curl -fLo ~/.local/share/fonts/JetBrainsMonoNerdFont-Regular.ttf \
+https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/JetBrainsMono/Ligatures/Regular/JetBrainsMonoNerdFont-Regular.ttf
+fc-cache -fv
 
 ###make desktop shortcuts###
 # DESKTOP=(
