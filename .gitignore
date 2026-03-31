@@ -18,6 +18,10 @@
 !/git/
 !/git/**
 
+# code editor
+!/nvim/
+!/nvim/**
+
 # script
 !/bin/
 !/bin/**

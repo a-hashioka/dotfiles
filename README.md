@@ -25,6 +25,10 @@ chmod u+x install.sh
 
 - ghostty
 
+### code editor
+
+- neovim
+
 ## directory tree
 
 ```txt
@@ -33,7 +37,8 @@ chmod u+x install.sh
 ├── README.md
 ├── bash
 │   ├── .bash_logout
-│   └── .bashrc
+│   ├── .bashrc
+│   └── .fzf.bash
 ├── bin
 │   ├── install.sh
 │   └── setup.sh
@@ -43,10 +48,27 @@ chmod u+x install.sh
 │           └── config.ghostty
 ├── git
 │   └── .gitconfig
+├── nvim
+│   └── .config
+│       └── nvim
+│           ├── .gitignore
+│           ├── .neoconf.json
+│           ├── LICENSE
+│           ├── README.md
+│           ├── init.lua
+│           ├── lua
+│           │   ├── config
+│           │   │   ├── autocmds.lua
+│           │   │   ├── keymaps.lua
+│           │   │   ├── lazy.lua
+│           │   │   └── options.lua
+│           │   └── plugins
+│           │       └── example.lua
+│           └── stylua.toml
 └── zsh
     ├── .fzf.zsh
     ├── .p10k.zsh
     └── .zshrc
 
-8 directories, 11 files
+14 directories, 23 files
 ```

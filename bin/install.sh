@@ -1,6 +1,9 @@
 #!/bin/bash
 
 ###install packages###
+# add neovim ppa for latest version of neovim 
+sudo add-apt-repository ppa:neovim-ppa/stable
+
 sudo apt update && sudo apt upgrade -y
 
 PACKAGES=(
@@ -12,6 +15,7 @@ PACKAGES=(
     xsel # clipboard manager
     stow  # symlink manager
     tree # directory viewer
+    neovim # editor
     # nautilus-dropbox #cloud
 )
 sudo apt install -y "${PACKAGES[@]}"
@@ -23,6 +27,11 @@ sudo apt install -y "${PACKAGES[@]}"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
 
+# install LazyVim
+git clone https://github.com/LazyVim/starter ~/.config/nvim/
+rm -rf ~/.config/nvim/.git
+
+# install vscode
 wget -O vscode.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
 sudo apt install -y ./code.deb
 rm vscode.deb
@@ -33,6 +42,7 @@ DOTFILES=(
     zsh
     git
     ghostty
+    nvim
 ) 
 cd ~/dotfiles && stow -vR "${DOTFILES[@]}"
 
