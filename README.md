@@ -28,7 +28,7 @@ chmod u+x install.sh
 ## directory tree
 
 ```txt
-..
+.
 ├── .gitignore
 ├── README.md
 ├── bash
@@ -44,8 +44,9 @@ chmod u+x install.sh
 ├── git
 │   └── .gitconfig
 └── zsh
+    ├── .fzf.zsh
     ├── .p10k.zsh
     └── .zshrc
 
-8 directories, 10 files
+8 directories, 11 files
 ```

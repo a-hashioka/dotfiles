@@ -19,6 +19,10 @@ sudo apt install -y "${PACKAGES[@]}"
 # install ghostty(terminal emulator)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
 
+# install fzf(fuzzy finder)
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --all
+
 wget -O vscode.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
 sudo apt install -y ./code.deb
 rm vscode.deb
