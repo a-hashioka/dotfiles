@@ -64,7 +64,7 @@ alias ....='cd ../../../'
 
 # some xsel aliases
 alias xcp='xsel -bi'
-alias xps=$(xsel -bo)
+alias xps='xsel -bo'
 
 # make tree output copyable
 alias tree='tree -a -I .git'

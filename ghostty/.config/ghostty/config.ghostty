@@ -10,7 +10,6 @@ cursor-style = bar
 cursor-style-blink = false
 
 # --- Behavior ---
-copy-on-select = true
 mouse-hide-while-typing = true
 shell-integration = detect
 
