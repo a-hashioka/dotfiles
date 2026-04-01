@@ -62,6 +62,10 @@ alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 
+# some mv and cp aliases
+alias mv='mv -i'
+alias cp='cp -i'
+
 # some xsel aliases
 alias xcp='xsel -bi'
 alias xps='xsel -bo'
@@ -98,3 +102,10 @@ else
     [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# fnm
+FNM_PATH="/home/a-hashioka/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env --shell zsh)"
+fi
