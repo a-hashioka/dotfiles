@@ -33,11 +33,11 @@ keybind = ctrl+k=goto_split:up
 keybind = ctrl+l=goto_split:right
 
 # Pane splitting
-keybind = ctrl+shift+v=new_split:right
-keybind = ctrl+shift+h=new_split:down
+keybind = alt+v=new_split:right
+keybind = alt+h=new_split:down
 
 # Close pane
-keybind = ctrl+x=close_surface
+keybind = alt+x=close_surface
 
 # Scroll up/down
 keybind = ctrl+shift+k=scroll_page_lines:-3

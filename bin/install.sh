@@ -1,11 +1,5 @@
 #!/bin/bash
-
-DOTFILES_DIR="$HOME/dotfiles"
-BACKUP_FILE="$DOTFILES_DIR/backup_$(date +%Y%m%d%H%M%S).tar.gz"
-
-create_backup() {
-  tar -cvzf "$BACKUP_FILE" -C "$(dirname "$DOTFILES_DIR")" "$(basename "$DOTFILES_DIR")"
-}
+set -euo pipefail
 
 install_packages() {
   # add neovim ppa for latest version of neovim
@@ -101,17 +95,6 @@ create_shortcuts() {
   done
 }
 
-cleanup() {
-  if [ -f "$BACKUP_FILE" ]; then
-    rm -rf "$DOTFILES_DIR"
-    tar -xzf "$BACKUP_FILE" -C "$(dirname "$DOTFILES_DIR")"
-    rm -f "$BACKUP_FILE"
-  fi
-}
-
-trap cleanup EXIT INT TERM
-
-create_backup
 install_packages
 create_symlink
 
