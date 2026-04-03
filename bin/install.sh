@@ -70,6 +70,6 @@ DOTFILES=(
   ghostty
   nvim
 )
-cd ~/dotfiles && stow -vR "${DOTFILES[@]}"
+cd ~/dotfiles && stow -vR --adopt "${DOTFILES[@]}" && git checkout -- .
 
 echo "Installation completed!"
