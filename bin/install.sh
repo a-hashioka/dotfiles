@@ -2,12 +2,28 @@
 set -euo pipefail
 
 sudo apt update && sudo apt upgrade -y
-sudo apt install -y curl wget git gnupg ca-certificates software-properties-common
+PACKAGES=(
+  curl    # command-line tool for transferring data with URLs
+  wget    # command-line utility for downloading files from the web
+  git     # version control system
+  gnupg   # GNU Privacy Guard, for secure communication and data storage
+  build-essential # Essential packages for building software
+  tar     # archiving utility
+  zsh     # shell
+  htop    # system monitor
+  xsel    # clipboard manager
+  stow    # symlink manager
+  tree    # directory viewer
+  ripgrep # search tool
+  fd-find # finder
+)
+sudo apt install -y "${PACKAGES[@]}"
 
-# add neovim ppa for latest version of neovim
+# install neovim from PPA for latest version
 sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt update && sudo apt install -y neovim
 
-# add docker repository for latest version of docker
+# install docker from official repository for latest version
 sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
@@ -15,28 +31,9 @@ echo \
   "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-sudo apt update && sudo apt upgrade -y
-PACKAGES=(
-  zsh     # shell
-  htop    # system monitor
-  xsel    # clipboard manager
-  stow    # symlink manager
-  tree    # directory viewer
-  neovim  # editor
-  ripgrep # search tool
-  fd-find # finder
-  # docker (containerization platform)
-  docker-ce 
-  docker-ce-cli 
-  containerd.io 
-  docker-buildx-plugin 
-  docker-compose-plugin
-)
-sudo apt install -y "${PACKAGES[@]}"
-
+sudo apt update && sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 # add current user to docker group to use docker without sudo
-#sudo usermod -aG docker $USER
+# sudo usermod -aG docker $USER
 
 # install ghostty(terminal emulator)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
@@ -70,6 +67,6 @@ DOTFILES=(
   ghostty
   nvim
 )
-cd ~/dotfiles && stow -vR --adopt "${DOTFILES[@]}" && git checkout -- .
+cd ~/dotfiles && stow -v --adopt "${DOTFILES[@]}" && git checkout -- .
 
 echo "Installation completed!"
