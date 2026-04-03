@@ -39,7 +39,7 @@ install_packages() {
   sudo apt install -y "${PACKAGES[@]}"
 
   # add current user to docker group to use docker without sudo
-  sudo usermod -aG docker $USER
+  #sudo usermod -aG docker $USER
 
   # install ghostty(terminal emulator)
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
