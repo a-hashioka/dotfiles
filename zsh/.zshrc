@@ -66,6 +66,9 @@ alias ....='cd ../../../'
 alias mv='mv -i'
 alias cp='cp -i'
 
+# fd alias
+alias fd='fd-find'
+
 # some xsel aliases
 alias xcp='xsel -bi'
 alias xps='xsel -bo'

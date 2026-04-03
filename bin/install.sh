@@ -38,9 +38,6 @@ install_packages() {
   )
   sudo apt install -y "${PACKAGES[@]}"
 
-  # fd -> fd-find
-  sudo ln -s $(which fdfind) /usr/bin/fd
-
   # add current user to docker group to use docker without sudo
   sudo usermod -aG docker $USER
 
