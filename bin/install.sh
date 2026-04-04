@@ -65,7 +65,7 @@ echo "[*] Installing JetBrains Mono Nerd Font..."
 mkdir -p "$HOME/.local/share/fonts"
 curl -fLo "$HOME/.local/share/fonts/JetBrainsMonoNerdFont-Regular.ttf" \
   https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/JetBrainsMono/Ligatures/Regular/JetBrainsMonoNerdFont-Regular.ttf
-fc-cache -q
+fc-cache -fv
 
 DOTFILES=(
   bash
