@@ -21,10 +21,32 @@ PACKAGES=(
 echo "[*] Installing core packages..."
 sudo apt-get install -y "${PACKAGES[@]}"
 
+# install fnm (fast and simple Node.js version manager)
+echo "[*] Installing fnm..."
+curl -fsSL https://fnm.vercel.app/install|bash
+# install latest LTS version of Node.js using fnm
+echo "[*] Installing latest LTS version of Node.js using fnm..."
+fnm install --lts
+# activate pnpm (fast and efficient package manager) using corepack
+corepack enable
+corepack prepare pnpm@latest --activate
+
 # install neovim from PPA for latest version
 echo "[*] Installing neovim from PPA..."
 sudo add-apt-repository -y ppa:neovim-ppa/stable > /dev/null
 sudo apt-get update && sudo apt-get install -y neovim
+
+# install LazyVim　(starter template for neovim)
+echo "[*] Installing LazyVim..."
+mkdir -p "$HOME/.config"
+git clone -q https://github.com/LazyVim/starter "$HOME/.config/nvim/"
+rm -rf "$HOME/.config/nvim/.git"
+
+# install lazygit　(git ui)echo "[*] Installing lazygit..."
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+curl -fLo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit && sudo install lazygit /usr/local/bin
+rm -f lazygit.tar.gz lazygit
 
 # install docker from official repository for latest version
 echo "[*] Installing docker..."
@@ -47,18 +69,6 @@ echo "[*] Installing ghostty..."
 echo "[*] Installing fzf..."
 git clone -q --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
 "$HOME/.fzf/install" --all > /dev/null
-
-# install LazyVim　(starter template for neovim)
-echo "[*] Installing LazyVim..."
-mkdir -p "$HOME/.config"
-git clone -q https://github.com/LazyVim/starter "$HOME/.config/nvim/"
-rm -rf "$HOME/.config/nvim/.git"
-
-# install lazygit　(git ui)echo "[*] Installing lazygit..."
-LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-curl -fLo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-tar xf lazygit.tar.gz lazygit && sudo install lazygit /usr/local/bin
-rm -f lazygit.tar.gz lazygit
 
 # install nerd font(JetBrains Mono)
 echo "[*] Installing JetBrains Mono Nerd Font..."
