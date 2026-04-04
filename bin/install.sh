@@ -2,7 +2,7 @@
 set -euo pipefail
 
 echo "[*] Updating and upgrading system packages..."
-sudo apt-get update -qq && sudo apt-get upgrade -y -qq
+sudo apt-get update && sudo apt-get upgrade -y
 PACKAGES=(
   curl    # data transfer tool
   wget    # network downloader
@@ -19,12 +19,12 @@ PACKAGES=(
   fd-find # finder
 )
 echo "[*] Installing core packages..."
-sudo apt-get install -y -qq --no-show-progress "${PACKAGES[@]}"
+sudo apt-get install -y "${PACKAGES[@]}"
 
 # install neovim from PPA for latest version
 echo "[*] Installing neovim from PPA..."
 sudo add-apt-repository -y ppa:neovim-ppa/stable > /dev/null
-sudo apt-get update -qq && sudo apt-get install -y -qq --no-show-progress neovim
+sudo apt-get update && sudo apt-get install -y neovim
 
 # install docker from official repository for latest version
 echo "[*] Installing docker..."
@@ -35,7 +35,7 @@ echo \
   "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update -qq && sudo apt-get install -y -qq --no-show-progress docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get update && sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 # add current user to docker group to use docker without sudo
 # sudo usermod -aG docker "$USER"
 
@@ -75,6 +75,6 @@ DOTFILES=(
   nvim
 )
 echo "[*] Setting up dotfiles with stow..."
-cd "$HOME/dotfiles" && stow --adopt "${DOTFILES[@]}" && git checkout -q -- .
+cd "$HOME/dotfiles" && stow -v --adopt "${DOTFILES[@]}" && git checkout -q -- .
 
 echo "[+] Installation completed!"
