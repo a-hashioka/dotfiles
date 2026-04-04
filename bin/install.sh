@@ -19,12 +19,12 @@ PACKAGES=(
   fd-find # finder
 )
 echo "[*] Installing core packages..."
-sudo apt-get install -y -qq "${PACKAGES[@]}"
+sudo apt-get install -y -qq --no-show-progress "${PACKAGES[@]}"
 
 # install neovim from PPA for latest version
 echo "[*] Installing neovim from PPA..."
 sudo add-apt-repository -y ppa:neovim-ppa/stable > /dev/null
-sudo apt-get update -qq && sudo apt-get install -y -qq neovim
+sudo apt-get update -qq && sudo apt-get install -y -qq --no-show-progress neovim
 
 # install docker from official repository for latest version
 echo "[*] Installing docker..."
@@ -35,9 +35,9 @@ echo \
   "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update -qq && sudo apt-get install -y -qq docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get update -qq && sudo apt-get install -y -qq --no-show-progress docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 # add current user to docker group to use docker without sudo
-sudo usermod -aG docker "$USER"
+# sudo usermod -aG docker "$USER"
 
 # install ghostty(terminal emulator)
 echo "[*] Installing ghostty..."
