@@ -67,7 +67,7 @@ alias mv='mv -i'
 alias cp='cp -i'
 
 # fd alias
-alias fd='fd-find'
+alias fd='fdfind'
 
 # some xsel aliases
 alias xcp='xsel -bi'
@@ -78,7 +78,7 @@ alias tree='tree -a -I .git'
 alias xtree='tree -a -I .git | xcp'
 
 # stow alias
-alias stow='stow -vR'
+alias stow='stow -v'
 
 # install and initialize zplug
 export ZPLUG_HOME="$HOME/.zplug"

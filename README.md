@@ -5,9 +5,9 @@
 Place the `dotfiles/` directory in your home directory.
 
 ```sh
-cd dotfiles/bin/
-chmod u+x install.sh
-./install.sh
+cd ~
+git clone 
+./dotfiles/bin/install.sh
 ```
 
 ## packages
