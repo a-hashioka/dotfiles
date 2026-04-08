@@ -18,9 +18,14 @@ PACKAGES=(
   tree    # directory viewer
   ripgrep # search tool
   fd-find # finder
+  pipx     # Python package installer for user-level packages
 )
 echo "[*] Installing core packages..."
 sudo apt-get install -y "${PACKAGES[@]}"
+
+pipx ensurepath
+pipx install fortls
+pipx install fprettify
 
 # install fzf(fuzzy finder)
 echo "[*] Installing fzf..."
