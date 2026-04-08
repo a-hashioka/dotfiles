@@ -17,9 +17,26 @@ PACKAGES=(
   tree    # directory viewer
   ripgrep # search tool
   fd-find # finder
+  pipx    # python package installer
+  imagemagick # image manipulation tool
+  sqlite3 # database engine
+  libsqlite3-dev # sqlite3 development files
+  libfontconfig1-dev # fontconfig development files
+  libgraphite2-dev # graphite2 development files
+  libharfbuzz-dev # harfbuzz development files
+  libicu-dev # icu development files
+  libssl-dev # openssl development files
+  zlib1g-dev # zlib development files
+  libpng-dev # png development files
+  pkg-config # package configuration tool
 )
 echo "[*] Installing core packages..."
 sudo apt-get install -y "${PACKAGES[@]}"
+
+# install cargo (rust package manager) and rustup (rust toolchain installer)
+echo "[*] Installing Rust and Cargo..."
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source "$HOME/.cargo/env"
 
 # install fnm (fast and simple Node.js version manager)
 echo "[*] Installing fnm..."
@@ -30,11 +47,27 @@ fnm install --lts
 # activate pnpm (fast and efficient package manager) using corepack
 corepack enable
 corepack prepare pnpm@latest --activate
+pnpm setup
+
+# install pnpm global packages
+pnpm add -g tree-sitter-cli # tree-sitter CLI for generating parser for neovim treesitter
+pnpm add -g neovim # neovim client for nodejs for neovim plugin development
+pnpm add -g @mermaid-js/mermaid-cli # mermaid CLI for generating diagrams from mermaid syntax
+pnpm approve-builds -g
 
 # install neovim from PPA for latest version
 echo "[*] Installing neovim from PPA..."
 sudo add-apt-repository -y ppa:neovim-ppa/stable > /dev/null
 sudo apt-get update && sudo apt-get install -y neovim
+
+# install pynvim for neovim python support
+pipx ensurepath
+pipx install pynvim
+
+# install tectonic (modern LaTeX engine)
+echo "[*] Installing tectonic..."
+export TECTONIC_DEP_BACKEND=external
+cargo install tectonic
 
 # install LazyVim　(starter template for neovim)
 echo "[*] Installing LazyVim..."
