@@ -22,6 +22,10 @@
 !/nvim/
 !/nvim/**
 
+## ssh
+!/ssh/
+!/ssh/**
+
 # script
 !/bin/
 !/bin/**

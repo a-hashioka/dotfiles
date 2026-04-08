@@ -12,6 +12,10 @@ git clone
 
 ## packages
 
+## remote access protcol
+
+- ssh
+
 ### version control
 
 - git
@@ -56,6 +60,8 @@ git clone
 │           ├── LICENSE
 │           ├── README.md
 │           ├── init.lua
+│           ├── lazy-lock.json
+│           ├── lazyvim.json
 │           ├── lua
 │           │   ├── config
 │           │   │   ├── autocmds.lua
@@ -65,10 +71,13 @@ git clone
 │           │   └── plugins
 │           │       └── example.lua
 │           └── stylua.toml
+├── ssh
+│   └── .ssh
+│       └── config
 └── zsh
     ├── .fzf.zsh
     ├── .p10k.zsh
     └── .zshrc
 
-14 directories, 23 files
+16 directories, 26 files
 ```
