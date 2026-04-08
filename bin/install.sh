@@ -9,6 +9,7 @@ PACKAGES=(
   git     # version control system
   gnupg   # GNU privacy guard
   build-essential # essential packages for building software
+  gfortran # Fortran compiler
   tar     # archiving utility
   zsh     # shell
   htop    # system monitor
