@@ -98,7 +98,9 @@ sudo usermod -aG docker "$USER"
 
 # install ghostty(terminal emulator)
 echo "[*] Installing ghostty..."
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
+sudo add-apt-repository ppa:mkasberg/ghostty-ubuntu
+sudo apt update
+sudo apt install ghostty
 
 # install fzf(fuzzy finder)
 echo "[*] Installing fzf..."
