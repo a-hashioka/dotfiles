@@ -17,6 +17,7 @@ PACKAGES=(
   tree               # directory viewer
   ripgrep            # search tool
   fd-find            # finder
+  eza                # modern ls replacement
   pipx               # python package installer
   imagemagick        # image manipulation tool
   octave             # numerical computing environment

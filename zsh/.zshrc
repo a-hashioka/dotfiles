@@ -52,15 +52,13 @@ if [[ -x /usr/bin/dircolors ]]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+# some eza aliases
+alias ls='eza --icons --group-directories-first --color=auto'
+alias ll='eza -alh --icons --group-directories-first --color=auto --time-style=long-iso --git --git-repos'
 
 # some cd aliases
 alias ..='cd ../'
-alias ...='cd ../../'
-alias ....='cd ../../../'
+alias ~='cd ~'
 
 # some mv and cp aliases
 alias mv='mv -i'
@@ -74,8 +72,9 @@ alias xcp='xsel -bi'
 alias xps='xsel -bo'
 
 # make tree output copyable
-alias tree='tree -a -I .git'
-alias xtree='tree -a -I .git | xcp'
+alias tree='eza --tree --icons --color=auto'
+alias atree='eza -a --tree --icons --color=auto -I .git'
+alias xtree='eza -a --tree --color=auto -I .git | xcp'
 
 # stow alias
 alias stow='stow -v'
