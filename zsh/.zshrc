@@ -67,7 +67,7 @@ alias mv='mv -i'
 alias cp='cp -i'
 
 # fd alias
-alias fd='fdfind'
+alias fdir='fdfind -H --type d'
 
 # some xsel aliases
 alias xcp='xsel -bi'
