@@ -57,8 +57,10 @@ alias ls='eza --icons --group-directories-first --color=auto'
 alias ll='eza -alh --icons --group-directories-first --color=auto --time-style=long-iso --git --git-repos'
 
 # some cd aliases
-alias ..='cd ../'
-alias ~='cd ~'
+setopt autocd
+alias ...='../../'
+# alias ..='cd ../'
+# alias ~='cd ~/'
 
 # some mv and cp aliases
 alias mv='mv -i'
