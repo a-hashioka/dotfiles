@@ -68,6 +68,8 @@ alias cp='cp -i'
 
 # fd alias
 alias fd='fdfind'
+alias fa='fdfind -IH'
+alias fdir='fdfind -H --type d'
 
 # some xsel aliases
 alias xcp='xsel -bi'
