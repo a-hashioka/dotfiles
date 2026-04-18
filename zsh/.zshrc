@@ -43,6 +43,10 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+### set options ###
+setopt autocd # cd into a directory by typing its name
+setopt globdots # include hidden files in globbing
+
 ###aliases###
 # colorize ls and grep output
 if [[ -x /usr/bin/dircolors ]]; then
@@ -57,7 +61,6 @@ alias ls='eza --icons --group-directories-first --color=auto'
 alias ll='eza -alh --icons --group-directories-first --color=auto --time-style=long-iso --git --git-repos'
 
 # some cd aliases
-setopt autocd
 alias ...='../../'
 # alias ..='cd ../'
 # alias ~='cd ~/'
@@ -75,7 +78,7 @@ alias fdir='fdfind -H --type d'
 alias xcp='xsel -bi'
 alias xps='xsel -bo'
 
-# make tree output copyable
+# some tree aliases
 alias tree='eza --tree --icons --color=auto'
 alias atree='eza -a --tree --icons --color=auto -I .git'
 alias xtree='eza -a --tree --color=auto -I .git | xcp'
