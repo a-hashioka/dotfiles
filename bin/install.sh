@@ -14,7 +14,6 @@ PACKAGES=(
   htop               # system monitor
   xsel               # clipboard manager
   stow               # symlink manager
-  tree               # directory viewer
   ripgrep            # search tool
   fd-find            # finder
   eza                # modern ls replacement
@@ -94,8 +93,6 @@ echo \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" |
   sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 sudo apt-get update && sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-# add current user to docker group to use docker without sudo
-sudo usermod -aG docker "$USER"
 
 # install ghostty(terminal emulator)
 echo "[*] Installing ghostty..."
@@ -114,16 +111,5 @@ mkdir -p "$HOME/.local/share/fonts"
 curl -fLo "$HOME/.local/share/fonts/JetBrainsMonoNerdFont-Regular.ttf" \
   https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/JetBrainsMono/Ligatures/Regular/JetBrainsMonoNerdFont-Regular.ttf
 fc-cache -fv
-
-DOTFILES=(
-  bash
-  zsh
-  git
-  ghostty
-  nvim
-  ssh
-)
-echo "[*] Setting up dotfiles with stow..."
-cd "$HOME/dotfiles" && stow -v --adopt "${DOTFILES[@]}" && git checkout -q -- .
 
 echo "[+] Installation completed!"
