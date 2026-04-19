@@ -1,7 +1,6 @@
 #!/bin/bash
 
 DOTFILES=(
-  bash
   zsh
   git
   ghostty
