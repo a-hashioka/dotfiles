@@ -22,7 +22,6 @@ git clone
 
 ### shell
 
-- bash
 - zsh
 
 ### terminal emulator
@@ -38,46 +37,41 @@ git clone
 ```txt
 .
 ├── .gitignore
-├── README.md
-├── bash
-│   ├── .bash_logout
-│   ├── .bashrc
-│   └── .fzf.bash
 ├── bin
-│   ├── install.sh
-│   └── setup.sh
+│  ├── init_env.sh
+│  ├── install.sh
+│  └── stow.sh
 ├── ghostty
-│   └── .config
-│       └── ghostty
-│           └── config.ghostty
+│  └── .config
+│     └── ghostty
+│        └── config.ghostty
 ├── git
-│   └── .gitconfig
+│  └── .gitconfig
 ├── nvim
-│   └── .config
-│       └── nvim
-│           ├── .gitignore
-│           ├── .neoconf.json
-│           ├── LICENSE
-│           ├── README.md
-│           ├── init.lua
-│           ├── lazy-lock.json
-│           ├── lazyvim.json
-│           ├── lua
-│           │   ├── config
-│           │   │   ├── autocmds.lua
-│           │   │   ├── keymaps.lua
-│           │   │   ├── lazy.lua
-│           │   │   └── options.lua
-│           │   └── plugins
-│           │       └── example.lua
-│           └── stylua.toml
+│  └── .config
+│     └── nvim
+│        ├── .gitignore
+│        ├── .neoconf.json
+│        ├── init.lua
+│        ├── lazy-lock.json
+│        ├── lazyvim.json
+│        ├── LICENSE
+│        ├── lua
+│        │  ├── config
+│        │  │  ├── autocmds.lua
+│        │  │  ├── keymaps.lua
+│        │  │  ├── lazy.lua
+│        │  │  └── options.lua
+│        │  └── plugins
+│        │     └── example.lua
+│        ├── README.md
+│        └── stylua.toml
+├── README.md
 ├── ssh
-│   └── .ssh
-│       └── config
+│  └── .ssh
+│     └── config
 └── zsh
-    ├── .fzf.zsh
-    ├── .p10k.zsh
-    └── .zshrc
-
-16 directories, 26 files
+   ├── .fzf.zsh
+   ├── .p10k.zsh
+   └── .zshrc
 ```
