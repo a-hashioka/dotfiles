@@ -76,7 +76,7 @@ alias fdir='fdfind -H --type d'
 
 # some xsel aliases
 alias xcp='xsel -bi'
-alias xps='xsel -bo'
+alias xps='xsel -bo | zsh'
 
 # some tree aliases
 alias tree='eza --tree --icons --color=auto'
@@ -85,6 +85,9 @@ alias xtree='eza -a --tree --color=auto -I .git | xcp'
 
 # stow alias
 alias stow='stow -v'
+
+# pnpm alias
+alias pnpx='pnpm dlx'
 
 # install and initialize zplug
 export ZPLUG_HOME="$HOME/.zplug"
