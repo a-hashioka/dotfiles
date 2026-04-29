@@ -50,12 +50,9 @@ git clone
 ├── nvim
 │  └── .config
 │     └── nvim
-│        ├── .gitignore
 │        ├── .neoconf.json
 │        ├── init.lua
 │        ├── lazy-lock.json
-│        ├── lazyvim.json
-│        ├── LICENSE
 │        ├── lua
 │        │  ├── config
 │        │  │  ├── autocmds.lua
@@ -63,8 +60,9 @@ git clone
 │        │  │  ├── lazy.lua
 │        │  │  └── options.lua
 │        │  └── plugins
+│        │     ├── colortheme.lua
+│        │     ├── dashboard.lua
 │        │     └── example.lua
-│        ├── README.md
 │        └── stylua.toml
 ├── README.md
 ├── ssh
