@@ -12,6 +12,7 @@ cursor-style-blink = true
 # --- Behavior ---
 mouse-hide-while-typing = true
 shell-integration = none
+confirm-close-surface = false
 
 # --- Window ---
 window-decoration = auto
