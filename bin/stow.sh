@@ -4,7 +4,7 @@ DOTFILES=(
   zsh
   git
   ghostty
-  nvim
+  # nvim
   ssh
 )
 echo "[*] Setting up dotfiles with stow..."

@@ -5,8 +5,6 @@
 ### add required files ###
 
 # shell
-!/bash/
-!/bash/**
 !/zsh/
 !/zsh/**
 
@@ -19,8 +17,8 @@
 !/git/**
 
 # code editor
-!/nvim/
-!/nvim/**
+# !/nvim/
+# !/nvim/**
 
 ## ssh
 !/ssh/
@@ -29,6 +27,7 @@
 # script
 !/bin/
 !/bin/**
+
 # others
 !/README.md
 !.gitignore
