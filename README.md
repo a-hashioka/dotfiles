@@ -47,25 +47,6 @@ git clone
 │        └── config.ghostty
 ├── git
 │  └── .gitconfig
-├── nvim
-│  └── .config
-│     └── nvim
-│        ├── .gitignore
-│        ├── .neoconf.json
-│        ├── init.lua
-│        ├── lazy-lock.json
-│        ├── lazyvim.json
-│        ├── LICENSE
-│        ├── lua
-│        │  ├── config
-│        │  │  ├── autocmds.lua
-│        │  │  ├── keymaps.lua
-│        │  │  ├── lazy.lua
-│        │  │  └── options.lua
-│        │  └── plugins
-│        │     └── example.lua
-│        ├── README.md
-│        └── stylua.toml
 ├── README.md
 ├── ssh
 │  └── .ssh

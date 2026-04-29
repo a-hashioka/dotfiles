@@ -71,18 +71,6 @@ echo "[*] Installing tectonic..."
 export TECTONIC_DEP_BACKEND=external
 cargo install tectonic
 
-# install LazyVim　(starter template for neovim)
-echo "[*] Installing LazyVim..."
-mkdir -p "$HOME/.config"
-git clone -q https://github.com/LazyVim/starter "$HOME/.config/nvim/"
-rm -rf "$HOME/.config/nvim/.git"
-
-# install lazygit　(git ui)echo "[*] Installing lazygit..."
-LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-curl -fLo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-tar xf lazygit.tar.gz lazygit && sudo install lazygit /usr/local/bin
-rm -f lazygit.tar.gz lazygit
-
 # install docker from official repository for latest version
 echo "[*] Installing docker..."
 sudo install -m 0755 -d /etc/apt/keyrings
