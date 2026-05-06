@@ -12,9 +12,9 @@ git clone
 
 ## packages
 
-- zsh: shell
-- ghostty: terminal emulator
-- neovim: code editor
+- shell: zsh
+- terminal emulator: ghostty
+- editor: neovim
 
 ## directory tree
 
