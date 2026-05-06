@@ -12,25 +12,9 @@ git clone
 
 ## packages
 
-### remote access protcol
-
-- ssh
-
-### version control
-
-- git
-
-### shell
-
-- zsh
-
-### terminal emulator
-
-- ghostty
-
-### code editor
-
-- neovim
+- zsh: shell
+- ghostty: terminal emulator
+- neovim: code editor
 
 ## directory tree
 
@@ -69,7 +53,13 @@ git clone
 │  └── .ssh
 │     └── config
 └── zsh
-   ├── .fzf.zsh
-   ├── .p10k.zsh
+   ├── .zsh
+   │  ├── .fzf.zsh
+   │  ├── .p10k.zsh
+   │  ├── alias.zsh
+   │  ├── completion.zsh
+   │  ├── history.zsh
+   │  ├── path.zsh
+   │  └── plugin.zsh
    └── .zshrc
 ```

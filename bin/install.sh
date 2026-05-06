@@ -96,9 +96,15 @@ sudo apt-get update && sudo apt-get install -y docker-ce docker-ce-cli container
 
 # install ghostty(terminal emulator)
 echo "[*] Installing ghostty..."
-sudo add-apt-repository ppa:mkasberg/ghostty-ubuntu
-sudo apt update
-sudo apt install ghostty
+sudo add-apt-repository -y ppa:mkasberg/ghostty-ubuntu
+sudo apt-get update
+sudo apt-get install -y ghostty
+
+# install fastfetch(system information tool)
+echo "[*] Installing fastfetch..."
+sudo add-apt-repository -y ppa:zhangsongcui3371/fastfetch
+sudo apt-get update
+sudo apt-get install -y fastfetch
 
 # install fzf(fuzzy finder)
 echo "[*] Installing fzf..."
