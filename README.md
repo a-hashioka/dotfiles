@@ -1,13 +1,12 @@
 # dotfiles
 
-## installer
+## installation
 
 Place the `dotfiles/` directory in your home directory.
 
 ```sh
 cd ~
 git clone 
-./dotfiles/bin/install.sh
 ```
 
 ## packages
