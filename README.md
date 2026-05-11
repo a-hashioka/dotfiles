@@ -1,4 +1,4 @@
-# dotfiles
+# a-hashioka's dotfiles
 
 ## installation
 
@@ -6,7 +6,7 @@ Place the `dotfiles/` directory in your home directory.
 
 ```sh
 cd ~
-git clone 
+git clone
 ```
 
 ## packages

@@ -1,90 +1,143 @@
 #!/bin/bash
 set -euo pipefail
 
+# ==============================================================================
+# SYSTEM PACKAGES INSTALLATION (APT)
+# ==============================================================================
+
 echo "[*] Updating and upgrading system packages..."
 sudo apt-get update && sudo apt-get upgrade -y
+
 PACKAGES=(
-  curl               # data transfer tool
-  wget               # network downloader
-  git                # version control system
+  # CLI Tools
+  curl               # Data transfer tool
+  wget               # Network downloader
+  git                # Version control system
   gnupg              # GNU privacy guard
-  build-essential    # essential packages for building software
-  tar                # archiving utility
-  zsh                # shell
-  htop               # system monitor
-  xsel               # clipboard manager
-  stow               # symlink manager
-  ripgrep            # search tool
-  fd-find            # finder
-  eza                # modern ls replacement
-  pipx               # python package installer
-  imagemagick        # image manipulation tool
-  octave             # numerical computing environment
-  sqlite3            # database engine
-  libsqlite3-dev     # sqlite3 development files
-  libfontconfig1-dev # fontconfig development files
-  libgraphite2-dev   # graphite2 development files
-  libharfbuzz-dev    # harfbuzz development files
-  libicu-dev         # icu development files
-  libssl-dev         # openssl development files
-  zlib1g-dev         # zlib development files
-  libpng-dev         # png development files
-  pkg-config         # package configuration tool
-  libopencv-dev      # OpenCV development files for computer vision tasks
+  stow               # Symlink manager
+  ripgrep            # Search tool
+  fd-find            # File finder
+  eza                # Modern ls replacement
+  bat                # Modern cat replacement
+  htop               # System monitor
+  xsel               # Clipboard manager
+
+  # Development Tools
+  build-essential    # Essential packages for building software
+  tar                # Archiving utility
+  pkg-config         # Package configuration tool
+
+  # Languages & Interpreters
+  zsh                # Shell
+  pipx               # Python package installer
+  octave             # Numerical computing environment
+
+  # Development Libraries
+  libsqlite3-dev     # SQLite3 development files
+  libfontconfig1-dev # Fontconfig development files
+  libgraphite2-dev   # Graphite2 development files
+  libharfbuzz-dev    # Harfbuzz development files
+  libicu-dev         # ICU development files
+  libssl-dev         # OpenSSL development files
+  zlib1g-dev         # Zlib development files
+  libpng-dev         # PNG development files
+  libopencv-dev      # OpenCV development files
+
+  # Multimedia & Graphics
+  imagemagick        # Image manipulation tool
+  sqlite3            # Database engine
+
+  # Graphics & Display Libraries
+  libatk1.0-0t64     # ATK accessibility toolkit
+  libatk-bridge2.0-0t64 # ATK bridge for accessibility
+  libcups2t64        # CUPS printing system
+  libdrm2            # DRM library
+  libxkbcommon0      # XKB common library
+  libxcomposite1     # X11 composite extension
+  libxdamage1        # X11 damage extension
+  libxrandr2         # X11 RandR extension
+  libgbm1            # GBM library
+  libpango-1.0-0     # Pango text rendering library
+  libcairo2          # Cairo graphics library
+  libasound2t64      # ALSA sound library
 )
+
 echo "[*] Installing core packages..."
 sudo apt-get install -y "${PACKAGES[@]}"
 
-# install cargo (rust package manager) and rustup (rust toolchain installer)
+# Install packages from PPAs
+echo "[*] Installing packages from PPAs..."
+sudo add-apt-repository -y ppa:neovim-ppa/stable >/dev/null
+sudo add-apt-repository -y ppa:mkasberg/ghostty-ubuntu >/dev/null
+sudo add-apt-repository -y ppa:zhangsongcui3371/fastfetch >/dev/null
+sudo apt-get update
+sudo apt-get install -y neovim ghostty fastfetch
+
+sudo apt-get update
+sudo apt-get install -y neovim ghostty fastfetch
+
+# ==============================================================================
+# RUST ECOSYSTEM
+# ==============================================================================
+
 echo "[*] Installing Rust and Cargo..."
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source "$HOME/.cargo/env"
 
-# install fnm (fast and simple Node.js version manager)
-echo "[*] Installing fnm..."
-curl -fsSL https://fnm.vercel.app/install | bash
-# install latest LTS version of Node.js using fnm
-echo "[*] Installing latest LTS version of Node.js using fnm..."
-fnm install --lts
-# activate pnpm (fast and efficient package manager) using corepack
-corepack enable
-corepack prepare pnpm@latest --activate
-pnpm setup
-
-# install pnpm global packages
-pnpm add -g tree-sitter-cli         # tree-sitter CLI for generating parser for neovim treesitter
-pnpm add -g neovim                  # neovim client for nodejs for neovim plugin development
-pnpm add -g @mermaid-js/mermaid-cli # mermaid CLI for generating diagrams from mermaid syntax
-pnpm approve-builds -g
-
-# install neovim from PPA for latest version
-echo "[*] Installing neovim from PPA..."
-sudo add-apt-repository -y ppa:neovim-ppa/stable >/dev/null
-sudo apt-get update && sudo apt-get install -y neovim
-
-# install pynvim for neovim python support
-pipx ensurepath
-pipx install pynvim
-
-# install tectonic (modern LaTeX engine)
-echo "[*] Installing tectonic..."
+echo "[*] Installing tectonic (modern LaTeX engine)..."
 export TECTONIC_DEP_BACKEND=external
 cargo install tectonic
 
-# install LazyVim　(starter template for neovim)
-echo "[*] Installing LazyVim..."
+# ==============================================================================
+# NODE.JS ECOSYSTEM
+# ==============================================================================
+
+echo "[*] Installing fnm (Node.js version manager)..."
+curl -fsSL https://fnm.vercel.app/install | bash
+
+echo "[*] Installing latest LTS version of Node.js..."
+fnm install --lts
+npm install -g npm@latest
+corepack enable
+
+echo "[*] Installing global npm packages..."
+npm install -g tree-sitter-cli         # Parser generator for Neovim Treesitter
+npm install -g neovim                  # Neovim client for Node.js plugin development
+npm install -g @mermaid-js/mermaid-cli # Mermaid CLI for diagram generation
+npm install -g typescript              # TypeScript language server for Neovim LSP
+
+# ==============================================================================
+# PYTHON ECOSYSTEM
+# ==============================================================================
+
+echo "[*] Installing Python tools..."
+pipx ensurepath
+pipx install pynvim                    # Neovim Python support
+
+# ==============================================================================
+# GIT REPOSITORIES
+# ==============================================================================
+
+echo "[*] Installing LazyVim (Neovim starter configuration)..."
 mkdir -p "$HOME/.config"
 git clone -q https://github.com/LazyVim/starter "$HOME/.config/nvim/"
 rm -rf "$HOME/.config/nvim/.git"
 
-# install lazygit　(git ui)echo "[*] Installing lazygit..."
+echo "[*] Installing fzf (Fuzzy finder)..."
+git clone -q --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
+"$HOME/.fzf/install" --all >/dev/null
+
+# ==============================================================================
+# WEB DOWNLOADS & EXTERNAL SERVICES
+# ==============================================================================
+
+echo "[*] Installing lazygit (Git UI)..."
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 curl -fLo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz lazygit && sudo install lazygit /usr/local/bin
 rm -f lazygit.tar.gz lazygit
 
-# install docker from official repository for latest version
-echo "[*] Installing docker..."
+echo "[*] Installing Docker (Container platform)..."
 sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
@@ -94,24 +147,10 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 sudo apt-get update && sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-# install ghostty(terminal emulator)
-echo "[*] Installing ghostty..."
-sudo add-apt-repository -y ppa:mkasberg/ghostty-ubuntu
-sudo apt-get update
-sudo apt-get install -y ghostty
+# ==============================================================================
+# FONTS & FINAL SETUP
+# ==============================================================================
 
-# install fastfetch(system information tool)
-echo "[*] Installing fastfetch..."
-sudo add-apt-repository -y ppa:zhangsongcui3371/fastfetch
-sudo apt-get update
-sudo apt-get install -y fastfetch
-
-# install fzf(fuzzy finder)
-echo "[*] Installing fzf..."
-git clone -q --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
-"$HOME/.fzf/install" --all >/dev/null
-
-# install nerd font(JetBrains Mono)
 echo "[*] Installing JetBrains Mono Nerd Font..."
 mkdir -p "$HOME/.local/share/fonts"
 curl -fLo "$HOME/.local/share/fonts/JetBrainsMonoNerdFont-Regular.ttf" \
