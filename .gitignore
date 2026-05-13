@@ -26,12 +26,18 @@
 !/ssh/
 !/ssh/**
 
+# fastfetch
+!/fastfetch/
+!/fastfetch/**
+
 # script
 !/bin/
 !/bin/**
 
+#screenshots
+!/img/
+!/img/**
+
 # others
 !/README.md
 !.gitignore
-!/img/
-!/img/**
