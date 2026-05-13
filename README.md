@@ -9,12 +9,17 @@ cd ~
 git clone
 ```
 
+## images
+
+![fastfetch](./img/fastfetch.png)
+![neovim_dashboard](./img/neovim_dashboard.png)
+![neovim_editor](./img/neovim_editor.png)
+
 ## packages
 
 - shell: zsh
 - terminal emulator: ghostty
 - editor: neovim
-  ![neovim](./img/neovim.png)
 
 ## directory tree
 
@@ -25,12 +30,20 @@ git clone
 │  ├── init_env.sh
 │  ├── install.sh
 │  └── stow.sh
+├── fastfetch
+│  └── .config
+│     └── fastfetch
+│        └── config.jsonc
 ├── ghostty
 │  └── .config
 │     └── ghostty
 │        └── config.ghostty
 ├── git
 │  └── .gitconfig
+├── img
+│  ├── fastfetch.png
+│  ├── neovim_dashboard.png
+│  └── neovim_editor.png
 ├── nvim
 │  └── .config
 │     └── nvim
@@ -46,7 +59,9 @@ git clone
 │        │  └── plugins
 │        │     ├── colortheme.lua
 │        │     ├── dashboard.lua
-│        │     └── example.lua
+│        │     ├── example.lua
+│        │     ├── explorer.lua
+│        │     └── markdown.lua
 │        └── stylua.toml
 ├── README.md
 ├── ssh
