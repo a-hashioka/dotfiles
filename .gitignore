@@ -29,6 +29,9 @@
 # script
 !/bin/
 !/bin/**
+
 # others
 !/README.md
 !.gitignore
+!/img/
+!/img/**

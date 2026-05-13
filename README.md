@@ -14,6 +14,7 @@ git clone
 - shell: zsh
 - terminal emulator: ghostty
 - editor: neovim
+  ![neovim](./img/neovim.png)
 
 ## directory tree
 
