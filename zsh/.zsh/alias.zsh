@@ -34,9 +34,9 @@ alias xps='xsel -bo'
 alias xx='xsel -bo | zsh'
 
 # tree alias
-alias tree='eza --tree --icons --color=auto --git-ignore'
-alias atree='eza -a --tree --icons --color=auto --git-ignore'
-alias xtree='eza -a --tree --color=auto --git-ignore | xsel -bi'
+alias tree='eza --tree --icons --color=auto --git-ignore -I node_modules'
+alias atree='eza -a --tree --icons --color=auto --git-ignore -I node_modules'
+alias xtree='eza -a --tree --color=auto --git-ignore -I node_modules | xsel -bi'
 
 # stow alias
 alias stow='stow -v'
