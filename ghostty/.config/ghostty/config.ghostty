@@ -34,13 +34,17 @@ keybind = ctrl+j=goto_split:down
 keybind = ctrl+k=goto_split:up
 keybind = ctrl+l=goto_split:right
 
+# Scroll up/down
+keybind = ctrl+shift+k=scroll_page_lines:-3
+keybind = ctrl+shift+j=scroll_page_lines:3
+
+# Resize pane
+keybind = ctrl+shift+h=resize_split:left,30
+keybind = ctrl+shift+l=resize_split:right,30
+
 # Pane splitting
 keybind = alt+v=new_split:right
 keybind = alt+h=new_split:down
 
 # Close pane
 keybind = alt+x=close_surface
-
-# Scroll up/down
-keybind = ctrl+shift+k=scroll_page_lines:-3
-keybind = ctrl+shift+j=scroll_page_lines:3

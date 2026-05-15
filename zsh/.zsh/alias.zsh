@@ -44,3 +44,4 @@ alias stow='stow -v'
 
 # npm alias
 alias cna='npx create-next-app@latest'
+alias nrd='npm run dev'

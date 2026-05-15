@@ -10,27 +10,27 @@ sudo apt-get update && sudo apt-get upgrade -y
 
 PACKAGES=(
   # CLI Tools
-  curl               # Data transfer tool
-  wget               # Network downloader
-  git                # Version control system
-  gnupg              # GNU privacy guard
-  stow               # Symlink manager
-  ripgrep            # Search tool
-  fd-find            # File finder
-  eza                # Modern ls replacement
-  bat                # Modern cat replacement
-  htop               # System monitor
-  xsel               # Clipboard manager
+  curl    # Data transfer tool
+  wget    # Network downloader
+  git     # Version control system
+  gnupg   # GNU privacy guard
+  stow    # Symlink manager
+  ripgrep # Search tool
+  fd-find # File finder
+  eza     # Modern ls replacement
+  bat     # Modern cat replacement
+  htop    # System monitor
+  xsel    # Clipboard manager
 
   # Development Tools
-  build-essential    # Essential packages for building software
-  tar                # Archiving utility
-  pkg-config         # Package configuration tool
+  build-essential # Essential packages for building software
+  tar             # Archiving utility
+  pkg-config      # Package configuration tool
 
   # Languages & Interpreters
-  zsh                # Shell
-  pipx               # Python package installer
-  octave             # Numerical computing environment
+  zsh    # Shell
+  pipx   # Python package installer
+  octave # Numerical computing environment
 
   # Development Libraries
   libsqlite3-dev     # SQLite3 development files
@@ -44,22 +44,22 @@ PACKAGES=(
   libopencv-dev      # OpenCV development files
 
   # Multimedia & Graphics
-  imagemagick        # Image manipulation tool
-  sqlite3            # Database engine
+  imagemagick # Image manipulation tool
+  sqlite3     # Database engine
 
   # Graphics & Display Libraries
-  libatk1.0-0t64     # ATK accessibility toolkit
+  libatk1.0-0t64        # ATK accessibility toolkit
   libatk-bridge2.0-0t64 # ATK bridge for accessibility
-  libcups2t64        # CUPS printing system
-  libdrm2            # DRM library
-  libxkbcommon0      # XKB common library
-  libxcomposite1     # X11 composite extension
-  libxdamage1        # X11 damage extension
-  libxrandr2         # X11 RandR extension
-  libgbm1            # GBM library
-  libpango-1.0-0     # Pango text rendering library
-  libcairo2          # Cairo graphics library
-  libasound2t64      # ALSA sound library
+  libcups2t64           # CUPS printing system
+  libdrm2               # DRM library
+  libxkbcommon0         # XKB common library
+  libxcomposite1        # X11 composite extension
+  libxdamage1           # X11 damage extension
+  libxrandr2            # X11 RandR extension
+  libgbm1               # GBM library
+  libpango-1.0-0        # Pango text rendering library
+  libcairo2             # Cairo graphics library
+  libasound2t64         # ALSA sound library
 )
 
 echo "[*] Installing core packages..."
@@ -67,12 +67,14 @@ sudo apt-get install -y "${PACKAGES[@]}"
 
 # Install packages from PPAs
 echo "[*] Installing packages from PPAs..."
-sudo add-apt-repository -y ppa:neovim-ppa/stable >/dev/null
-sudo add-apt-repository -y ppa:mkasberg/ghostty-ubuntu >/dev/null
-sudo add-apt-repository -y ppa:zhangsongcui3371/fastfetch >/dev/null
-sudo apt-get update
-sudo apt-get install -y neovim ghostty fastfetch
-
+PPAS=(
+  ppa:neovim-ppa/stable
+  ppa:mkasberg/ghostty-ubuntu
+  ppa:zhangsongcui3371/fastfetch
+)
+for ppa in "${PPAS[@]}"; do
+  sudo add-apt-repository -y "$ppa" >/dev/null
+done
 sudo apt-get update
 sudo apt-get install -y neovim ghostty fastfetch
 
@@ -112,7 +114,8 @@ npm install -g typescript              # TypeScript language server for Neovim L
 
 echo "[*] Installing Python tools..."
 pipx ensurepath
-pipx install pynvim                    # Neovim Python support
+pipx install pynvim # Neovim Python support
+pipx install uv     # Fast Python dev environment manager
 
 # ==============================================================================
 # GIT REPOSITORIES
