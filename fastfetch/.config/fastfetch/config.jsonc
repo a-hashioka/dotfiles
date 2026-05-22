@@ -67,7 +67,7 @@
     {
       "type": "os",
       // Fixed: Kubuntu logo for JetBrainsMono Nerd Font
-      "key": "   OS",
+      "key": "   OS",
       "format": "{3} {10}",
     },
     {
