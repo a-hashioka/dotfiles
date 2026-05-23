@@ -1,3 +1,5 @@
 [user]
 	name = a.hashioka
 	email = atsuro.3-hashioka.5@outlook.jp
+[init]
+	defaultBranch = main
