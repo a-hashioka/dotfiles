@@ -20,8 +20,9 @@ alias ..='cd ../'
 alias ~='cd ~/'
 
 # mv and cp alias
-alias mv='mv -i'
+alias mv='mv -ip'
 alias cp='cp -i'
+alias rm='rm -r'
 
 # fd alias
 alias fd='fdfind'
