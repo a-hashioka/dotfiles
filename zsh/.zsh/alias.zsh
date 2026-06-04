@@ -20,7 +20,7 @@ alias ..='cd ../'
 alias ~='cd ~/'
 
 # mv and cp alias
-alias mv='mv -ip'
+alias mv='mv -i'
 alias cp='cp -i'
 alias rm='rm -r'
 
