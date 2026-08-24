@@ -4,7 +4,6 @@ font-family = JetBrainsMono Nerd Font
 font-size = 12
 background-opacity = 0.90
 # background-blur-radius = true
-# adjust-cell-height = 10%
 
 # --- Cursor ---
 cursor-style = block
@@ -12,7 +11,8 @@ cursor-style-blink = true
 
 # --- Behavior ---
 mouse-hide-while-typing = true
-shell-integration = none
+shell-integration = detect
+shell-integration-features = no-cursor
 confirm-close-surface = false
 
 # --- Window ---
