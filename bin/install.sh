@@ -21,6 +21,7 @@ PACKAGES=(
   bat     # Modern cat replacement
   htop    # System monitor
   xsel    # Clipboard manager
+  unzip   # Extract ZIP files
 
   # Development Tools
   build-essential # Essential packages for building software
@@ -110,5 +111,16 @@ mkdir -p "$HOME/.local/share/fonts"
 curl -fLo "$HOME/.local/share/fonts/JetBrainsMonoNerdFont-Regular.ttf" \
   https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/JetBrainsMono/Ligatures/Regular/JetBrainsMonoNerdFont-Regular.ttf
 fc-cache -fv
+
+DOTFILES=(
+  zsh
+  git
+  ghostty
+  nvim
+  ssh
+  fastfetch
+)
+echo "[*] Setting up dotfiles with stow..."
+cd "$HOME/dotfiles" && stow -v --adopt "${DOTFILES[@]}" && git checkout -q -- .
 
 echo "[+] Installation completed!"
