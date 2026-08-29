@@ -1,7 +1,7 @@
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */home/a-hashioka/.fzf/bin* ]]; then
-  PATH="${PATH:+${PATH}:}/home/a-hashioka/.fzf/bin"
+if [[ ! "$PATH" == "$HOME/.fzf/bin" ]]; then
+  PATH="${PATH:+${PATH}:}$HOME/.fzf/bin"
 fi
 
 source <(fzf --zsh)

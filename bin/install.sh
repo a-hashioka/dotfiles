@@ -25,41 +25,10 @@ PACKAGES=(
   # Development Tools
   build-essential # Essential packages for building software
   tar             # Archiving utility
-  pkg-config      # Package configuration tool
 
   # Languages & Interpreters
-  zsh    # Shell
-  pipx   # Python package installer
-  octave # Numerical computing environment
-
-  # Development Libraries
-  libsqlite3-dev     # SQLite3 development files
-  libfontconfig1-dev # Fontconfig development files
-  libgraphite2-dev   # Graphite2 development files
-  libharfbuzz-dev    # Harfbuzz development files
-  libicu-dev         # ICU development files
-  libssl-dev         # OpenSSL development files
-  zlib1g-dev         # Zlib development files
-  libpng-dev         # PNG development files
-  libopencv-dev      # OpenCV development files
-
-  # Multimedia & Graphics
-  imagemagick # Image manipulation tool
-  sqlite3     # Database engine
-
-  # Graphics & Display Libraries
-  libatk1.0-0t64        # ATK accessibility toolkit
-  libatk-bridge2.0-0t64 # ATK bridge for accessibility
-  libcups2t64           # CUPS printing system
-  libdrm2               # DRM library
-  libxkbcommon0         # XKB common library
-  libxcomposite1        # X11 composite extension
-  libxdamage1           # X11 damage extension
-  libxrandr2            # X11 RandR extension
-  libgbm1               # GBM library
-  libpango-1.0-0        # Pango text rendering library
-  libcairo2             # Cairo graphics library
-  libasound2t64         # ALSA sound library
+  zsh  # Shell
+  pipx # Python package installer
 )
 
 echo "[*] Installing core packages..."
@@ -79,18 +48,6 @@ sudo apt-get update
 sudo apt-get install -y neovim ghostty fastfetch
 
 # ==============================================================================
-# RUST ECOSYSTEM
-# ==============================================================================
-
-echo "[*] Installing Rust and Cargo..."
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source "$HOME/.cargo/env"
-
-echo "[*] Installing tectonic (modern LaTeX engine)..."
-export TECTONIC_DEP_BACKEND=external
-cargo install tectonic
-
-# ==============================================================================
 # NODE.JS ECOSYSTEM
 # ==============================================================================
 
@@ -101,12 +58,6 @@ echo "[*] Installing latest LTS version of Node.js..."
 fnm install --lts
 npm install -g npm@latest
 corepack enable
-
-echo "[*] Installing global npm packages..."
-npm install -g tree-sitter-cli         # Parser generator for Neovim Treesitter
-npm install -g neovim                  # Neovim client for Node.js plugin development
-npm install -g @mermaid-js/mermaid-cli # Mermaid CLI for diagram generation
-npm install -g typescript              # TypeScript language server for Neovim LSP
 
 # ==============================================================================
 # PYTHON ECOSYSTEM

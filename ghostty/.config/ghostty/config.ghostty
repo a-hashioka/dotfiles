@@ -3,7 +3,6 @@ theme =0x96f
 font-family = JetBrainsMono Nerd Font
 font-size = 12
 background-opacity = 0.90
-# background-blur-radius = true
 
 # --- Cursor ---
 cursor-style = block
