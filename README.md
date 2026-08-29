@@ -1,4 +1,4 @@
-# a-hashioka's dotfiles
+# atzroh's dotfiles
 
 ## installation
 
