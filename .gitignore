@@ -4,9 +4,10 @@
 
 ### add required files ###
 
+# script
+!install.sh
+
 # shell
-!/bash/
-!/bash/**
 !/zsh/
 !/zsh/**
 
@@ -29,10 +30,6 @@
 # fastfetch
 !/fastfetch/
 !/fastfetch/**
-
-# script
-!/bin/
-!/bin/**
 
 #screenshots
 !/img/

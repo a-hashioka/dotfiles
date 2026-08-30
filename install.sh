@@ -101,18 +101,14 @@ echo \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" |
   sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 sudo apt-get update && sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo usermod -aG docker "$USER" # add current user to docker group to use docker without sudo
 
 # ==============================================================================
-# FONTS & FINAL SETUP
+# SYMLINK
 # ==============================================================================
-
-echo "[*] Installing JetBrains Mono Nerd Font..."
-mkdir -p "$HOME/.local/share/fonts"
-curl -fLo "$HOME/.local/share/fonts/JetBrainsMonoNerdFont-Regular.ttf" \
-  https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/JetBrainsMono/Ligatures/Regular/JetBrainsMonoNerdFont-Regular.ttf
-fc-cache -fv
 
 DOTFILES=(
+  bash
   zsh
   git
   ghostty
@@ -122,5 +118,19 @@ DOTFILES=(
 )
 echo "[*] Setting up dotfiles with stow..."
 cd "$HOME/dotfiles" && stow -v --adopt "${DOTFILES[@]}" && git checkout -q -- .
+
+# ==============================================================================
+# FONTS & FINAL SETUP
+# ==============================================================================
+
+echo "[*] Installing JetBrains Mono Nerd Font..."
+mkdir -p "$HOME/.local/share/fonts/JetBrainsMono/"
+curl -fLo "/tmp/JetBrainsMono.zip" \
+  https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+unzip -o "/tmp/JetBrainsMono.zip" -d "$HOME/.local/share/fonts/JetBrainsMono/"
+fc-cache -fv
+rm /tmp/JetBrainsMono.zip
+
+chsh -s "$(which zsh)" # change default shell to zsh
 
 echo "[+] Installation completed!"
