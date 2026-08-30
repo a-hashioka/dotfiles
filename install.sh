@@ -111,7 +111,6 @@ sudo usermod -aG docker "$USER" # add current user to docker group to use docker
 # ==============================================================================
 
 DOTFILES=(
-  bash
   zsh
   git
   ghostty
