@@ -54,6 +54,9 @@ sudo apt-get install -y neovim ghostty fastfetch
 
 echo "[*] Installing fnm (Node.js version manager)..."
 curl -fsSL https://fnm.vercel.app/install | bash
+echo "[*] Initializing fnm in this shell..."
+export PATH="$HOME/.local/share/fnm:$PATH"
+eval "$(fnm env --shell bash)"
 
 echo "[*] Installing latest LTS version of Node.js..."
 fnm install --lts
